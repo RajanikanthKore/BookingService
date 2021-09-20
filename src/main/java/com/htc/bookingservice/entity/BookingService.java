@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class BookingService {
 
 	@Id	
-	private Long userName;	
+	private String pinCode;	
 	private Long bookingserviceId;
 	private LocalDate bookingserviceDate;
 	private Long centreId;
@@ -21,20 +21,20 @@ public class BookingService {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BookingService(Long userName, Long bookingserviceId, LocalDate bookingserviceDate, Long centreId) {
+	public BookingService(String pinCode, Long bookingserviceId, LocalDate bookingserviceDate, Long centreId) {
 		super();
-		this.userName = userName;
+		this.pinCode = pinCode;
 		this.bookingserviceId = bookingserviceId;
 		this.bookingserviceDate = bookingserviceDate;
 		this.centreId = centreId;
 	}
 
-	public Long getUserName() {
-		return userName;
+	public String getPinCode() {
+		return pinCode;
 	}
 
-	public void setUserName(Long userName) {
-		this.userName = userName;
+	public void setPinCode(String pinCode) {
+		this.pinCode = pinCode;
 	}
 
 	public Long getBookingserviceId() {
@@ -80,8 +80,8 @@ public class BookingService {
 
 	@Override
 	public String toString() {
-		return "BookingService [userName=" + userName + ", bookingserviceId=" + bookingserviceId
-				+ ", bookingserviceDate=" + bookingserviceDate + ", centreId=" + centreId + "]";
+		return "BookingService [pinCode=" + pinCode + ", bookingserviceId=" + bookingserviceId + ", bookingserviceDate="
+				+ bookingserviceDate + ", centreId=" + centreId + "]";
 	}
 	
 }

@@ -20,31 +20,20 @@ import com.htc.bookingservice.persistance.IBookingService;
 public class BookingServiceController {
 
 	@Autowired
-	IBookingService repo;
+	private com.htc.bookingservice.persistance.IBookingService ibookingService;
 	
+	@GetMapping("/bookingService/{bookingId}") 
+	public BookingService getBookingServiceById(@PathVariable Long bookingId) {
+		BookingService bookingService =null;
 	
-	@PostMapping("/users")
-	BookingService createPatientdetails(@RequestBody BookingService bookingService)
-	{
-		return  repo.save(bookingService);
-		
-	}
-	@GetMapping("/bookinservices")
-	  public List<BookingService> getAllBookingServicedetails() {
-	   
-	    List<BookingService> list = new ArrayList<>();
-	    Iterable<BookingService> users = repo.findAll();
-	 
-	    users.forEach(list::add);
-	    return list;
-	  }
-	
-	@GetMapping("/BookingServiceId/{centreId}")
-	BookingService getBookingServicebyId(@PathVariable Long centreId)
-	{
-		BookingService bookingService=null;
-		bookingService=repo.getById(centreId).get();
+		bookingService=ibookingService.findById(bookingId).get();
 		return bookingService;
-		
+	
+	}
+	@PostMapping("/addBookingDetails") 
+	public BookingService createDetails(@RequestBody BookingService bookingservice) {
+		   
+		 return ibookingService.save(bookingservice);
+		 
 	}
 }
