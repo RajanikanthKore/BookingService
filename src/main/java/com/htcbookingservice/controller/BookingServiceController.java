@@ -26,7 +26,7 @@ public class BookingServiceController {
 	@PostMapping("/users")
 	BookingService createPatientdetails(@RequestBody BookingService bookingService)
 	{
-		return repo.save(bookingService);
+		return  repo.save(bookingService);
 		
 	}
 	@GetMapping("/bookinservices")
